@@ -13,7 +13,7 @@ jobs:
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@master
       - name: Brew tap
-        run: brew tap nwithan8/formulas
+        run: brew tap nwithan8/tap
   install:
     runs-on: macos-latest
     steps:
@@ -22,7 +22,7 @@ jobs:
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@master
       - name: brew install formula
-        run: brew install --formula /Users/runner/work/homebrew-formulas/homebrew-formulas/formula/*.rb
+        run: brew install --formula /Users/runner/work/homebrew-tap/homebrew-tap/formula/*.rb
   audit:
     runs-on: macos-latest
     steps:
@@ -31,7 +31,7 @@ jobs:
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@master
       - name: brew audit formula
-        run: brew audit --formula /Users/runner/work/homebrew-formulas/homebrew-formulas/formula/*.rb
+        run: brew audit --formula /Users/runner/work/homebrew-tap/homebrew-tap/formula/*.rb
       - name: Workflow keepalive
         uses: gautamkrishnar/keepalive-workflow@master # Creates a dummy commit when the workflow is stale to keep it from being disabled
         with:
