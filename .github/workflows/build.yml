@@ -21,6 +21,9 @@ jobs:
         uses: actions/checkout@v2
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@master
+      - name: Clean up Homebrew first
+        run: |
+          brew unlink go@1.17
       - name: brew install formula
         run: brew install --formula /Users/runner/work/homebrew-tap/homebrew-tap/formula/*.rb
   audit:

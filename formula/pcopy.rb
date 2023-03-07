@@ -1,13 +1,12 @@
 # typed: false
 # frozen_string_literal: true
 
+# This file was manually edited.
 class Pcopy < Formula
-  desc "pcopy is a temporary file host, nopaste and clipboard across machines"
+  desc "Client to interact with a pcopy temporary file host"
   homepage "https://github.com/binwiederhier/pcopy"
+  url "https://github.com/binwiederhier/pcopy.git", revision: "6e81d03512589b1d3051d240fcfc86e54dde8237"
   version "0.6.1"
-  url "https://github.com/binwiederhier/pcopy.git",
-      tag: "v0.6.1",
-      revision: "6e81d03512589b1d3051d240fcfc86e54dde8237"
   license "Apache-2.0"
   head "https://github.com/binwiederhier/pcopy.git", branch: "master"
 
