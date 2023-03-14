@@ -74,7 +74,7 @@ if __name__ == '__main__':
 
     os.makedirs('formula', exist_ok=True)
 
-    updated_packages: list[str] = []
+    updated_templates: list[str] = []
 
     for package_name, package_data in packages.items():
 
@@ -128,14 +128,14 @@ if __name__ == '__main__':
         build_template(package_name=package_name, data=package_data)
 
         print(f"{package_name} updated successfully!\n")
-        updated_packages.append(package_name)
+        updated_templates.append(package_name)
 
     # Log the last time the script was run
     with open('last_run.txt', 'w') as f:
         f.write(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 
     # Log which packages were updated
-    if len(updated_packages) == 0:
-        updated_packages.append('None')
-    with open('updated_packages.txt', 'w') as f:
-        f.write(', '.join(updated_packages))
+    if len(updated_templates) == 0:
+        updated_templates.append('None')
+    with open('updated_templates.txt', 'w') as f:
+        f.write(', '.join(updated_templates))
