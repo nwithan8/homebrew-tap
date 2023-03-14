@@ -1,0 +1,22 @@
+{
+  "pcopy": {
+    "github_author": "binwiederhier",
+    "github_repo": "pcopy",
+    "version": "0",
+    "url": "",
+    "sha256": "",
+    "description": "Client to interact with a pcopy temporary file host",
+    "homepage": "https://github.com/binwiederhier/pcopy",
+    "license": "Apache-2.0"
+  },
+  "ntfy": {
+    "github_author": "binwiederhier",
+    "github_repo": "ntfy",
+    "version": "0",
+    "url": "",
+    "sha256": "9acfebaa1bb93ec52824281993fd290682c6cd0a18304cff1f57f75b5dde0bfd",
+    "description": "Client to interact with an ntfy pub-sub server",
+    "homepage": "https://github.com/binwiederhier/ntfy",
+    "license": "Apache-2.0"
+  }
+}
