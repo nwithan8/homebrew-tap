@@ -1,14 +1,13 @@
-name: Update Templates for Monitored Projects
+name: Update Templates for Monitored Projects (push)
 
 on:
   push:
     branches:
       - master
-  schedule:
-    - cron: "0 1 * * *"
 
 jobs:
   update:
+    name: Update Templates
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -22,7 +21,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       - name: Update templates
-        run: python update_templates.py
+        run: python update_templates.py --force
       - name: Determine which templates were updated
         id: templates
         run: |

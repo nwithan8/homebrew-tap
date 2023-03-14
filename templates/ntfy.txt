@@ -13,7 +13,8 @@ class Ntfy < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-linkmode=external -extldflags=-static -s -w -X main.version=#{version} -X main.date=#{time.iso8601}"
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "mkdir", "-p", "server/docs"
+    ldflags = "-X main.version=#{version} -X main.date=#{time.iso8601}"
+    system "go", "build", *std_go_args(ldflags: ldflags), "-tags=noserver"
   end
 end

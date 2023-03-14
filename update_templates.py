@@ -7,6 +7,7 @@ import objectrest
 import os
 import re
 from typing import Union
+import argparse
 
 
 def replace(text: str, pattern: str, replacement: str) -> str:
@@ -70,6 +71,10 @@ def calculate_sha256(file_path: str) -> str:
 
 if __name__ == '__main__':
 
+    parser = argparse.ArgumentParser(description='Update Homebrew formulae')
+    parser.add_argument('--force', action='store_true', help='Force update all formulae')
+    args = parser.parse_args()
+
     packages: dict = load_packages(file_path='packages.json')
 
     os.makedirs('formula', exist_ok=True)
@@ -98,7 +103,7 @@ if __name__ == '__main__':
         latest_version: str = parse_version_number(version=latest_version_string)
 
         # Check if the latest GitHub version is newer than the current version
-        if latest_version == current_version:
+        if latest_version == current_version and not args.force:
             print("No new version found. Skipping...")
             exit(0)  # No new version, no need to update the formula
 
