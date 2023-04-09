@@ -105,7 +105,7 @@ if __name__ == '__main__':
         # Check if the latest GitHub version is newer than the current version
         if latest_version == current_version and not args.force:
             print("No new version found. Skipping...")
-            exit(0)  # No new version, no need to update the formula
+            continue
 
         print(f"New version found: {latest_version}")
         source_code_url: str = release_data.get('tarball_url', None)
