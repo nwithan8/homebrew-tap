@@ -12,9 +12,39 @@ class Ntfy < Formula
 
   depends_on "go" => :build
 
-  def install
-    system "mkdir", "-p", "server/docs"
-    ldflags = "-X main.version=#{version} -X main.date=#{time.iso8601}"
-    system "go", "build", *std_go_args(ldflags: ldflags), "-tags=noserver"
+  on_macos do
+    if Hardware::CPU.intel?
+      def install
+        system "mkdir", "-p", "server/docs"
+        ldflags = "-X main.version=#{version} -X main.date=#{time.iso8601}"
+        system "go", "build", *std_go_args(ldflags: ldflags), "-tags=noserver"
+      end
+    end
+
+    if Hardware::CPU.arm?
+      def install
+        system "mkdir", "-p", "server/docs"
+        ldflags = "-X main.version=#{version} -X main.date=#{time.iso8601}"
+        system "go", "build", *std_go_args(ldflags: ldflags), "-tags=noserver"
+      end
+    end
+  end
+
+  on_linux do
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      def install
+        system "mkdir", "-p", "server/docs"
+        ldflags = "-X main.version=#{version} -X main.date=#{time.iso8601}"
+        system "go", "build", *std_go_args(ldflags: ldflags), "-tags=noserver"
+      end
+    end
+
+    if Hardware::CPU.intel?
+      def install
+        system "mkdir", "-p", "server/docs"
+        ldflags = "-X main.version=#{version} -X main.date=#{time.iso8601}"
+        system "go", "build", *std_go_args(ldflags: ldflags), "-tags=noserver"
+      end
+    end
   end
 end
