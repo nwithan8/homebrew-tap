@@ -45,7 +45,7 @@ def build_template(package_name: str, data: dict) -> None:
         replace_pattern = f"REPLACE_{key.upper()}"
         template = replace(text=template, pattern=replace_pattern, replacement=value)
 
-    save_template(file_name=f'formula/{package_name}.rb', text=template)
+    save_template(file_name=f'Formula/{package_name}.rb', text=template)
 
 
 def parse_version_number(version: str) -> str:
@@ -77,7 +77,7 @@ if __name__ == '__main__':
 
     packages: dict = load_packages(file_path='packages.json')
 
-    os.makedirs('formula', exist_ok=True)
+    os.makedirs('Formula', exist_ok=True)
 
     updated_templates: list[str] = []
 
