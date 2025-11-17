@@ -5,9 +5,9 @@
 class Ntfy < Formula
   desc "Client to interact with an ntfy pub-sub server"
   homepage "https://github.com/binwiederhier/ntfy"
-  url "https://api.github.com/repos/binwiederhier/ntfy/tarball/v2.14.0"
-  version "2.14.0"
-  sha256 "5883596ce32a3f21f3b1e557a1b1301537c9e1e807f85b196fcd2356986ada2b"
+  url "https://api.github.com/repos/binwiederhier/ntfy/tarball/v2.15.0"
+  version "2.15.0"
+  sha256 "c10ee23a7233adb0e8001fd163a34bb17423937b07034f5cf509b9c04fe1b5dc"
   license "Apache-2.0"
 
   depends_on "go" => :build
